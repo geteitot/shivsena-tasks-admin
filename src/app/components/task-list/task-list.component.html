@@ -1,15 +1,25 @@
+
 <div class="cont">
     <div class="row mb-3">
       <div class="col-md-6">
         <div class="input-group">
           <input id="search-bar" type="text" class="form-control" placeholder="Search Tasks" [(ngModel)]="searchText">
           <button class="btn btn-outline-secondary" type="button" (click)="viewTasks()">View All Tasks</button>
+  
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group">
+          <button class="btn btn-outline-secondary" (click)="openCreateTaskDialog()">Add Task</button>
+  
+
         </div>
       </div>
     </div>
   
     <div id="tasks-list" class="list-group">
-      <div *ngFor="let task of tasks | filterTasks: searchText" class="list-group-item list-group-item-action" (click)="openDialog(task)">
+      <div *ngFor="let task of tasks | filterTasks: searchText" class="list-group-item list-group-item-action" (click)="openUpdateTaskDialog(task)">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">{{task.title}}</h5>

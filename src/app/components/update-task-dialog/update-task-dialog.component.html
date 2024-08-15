@@ -1,21 +1,39 @@
-<div id="dialog-overlay" *ngIf="isDialogOpen"></div>
-<div id="update-task-dialog" *ngIf="isDialogOpen">
-  <form (ngSubmit)="updateTask()">
-    <input type="hidden" [(ngModel)]="task.id" name="id" />
 
-    <label for="update-task-title">Title:</label>
-    <input id="update-task-title" [(ngModel)]="task.title" name="title" />
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Task</h5>
+        <button type="button" class="close-dialog" (click)="closeDialog()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="updateTask()">
+          <input type="hidden" [(ngModel)]="task.id" name="id" />
 
-    <label for="update-task-subtitle">Subtitle:</label>
-    <input id="update-task-subtitle" [(ngModel)]="task.subtitle" name="subtitle" />
+          <div class="form-group">
+            <label for="update-task-title">Title:</label>
+            <input class="form-control" id="update-task-title" [(ngModel)]="task.title" name="title" required />
+          </div>
 
-    <label for="update-task-description">Description:</label>
-    <textarea id="update-task-description" [(ngModel)]="task.description" name="description"></textarea>
+          <div class="form-group">
+            <label for="update-task-subtitle">Subtitle:</label>
+            <input class="form-control" id="update-task-subtitle" [(ngModel)]="task.subtitle" name="subtitle" />
+          </div>
 
-    <label for="update-task-validity">Date Validity:</label>
-    <input type="date" id="update-task-validity" [(ngModel)]="task.dateValidity" name="dateValidity" />
+          <div class="form-group">
+            <label for="update-task-description">Description:</label>
+            <textarea class="form-control" id="update-task-description" [(ngModel)]="task.description" name="description"></textarea>
+          </div>
 
-    <button type="submit">Update Task</button>
-  </form>
-  <button id="close-dialog" (click)="closeDialog()">Close</button>
-</div>
+          <div class="form-group">
+            <label for="update-task-validity">Date Validity:</label>
+            <input type="date" class="form-control" id="update-task-validity" [(ngModel)]="task.dateValidity" name="dateValidity" />
+          </div>
+
+         <div class="modal-footer"> <button type="submit" class="btn btn-primary">Update Task</button>
+          <button type="button" class="btn btn-secondary" (click)="closeDialog()">Close</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
