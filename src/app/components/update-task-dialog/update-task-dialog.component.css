@@ -1,0 +1,53 @@
+/* Styling the dialog container */
+.dialog-container {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling the form inside the dialog */
+  .dialog-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dialog-container input[type="text"],
+  .dialog-container input[type="date"],
+  .dialog-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .dialog-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .dialog-container button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  /* Close button for the dialog */
+  .dialog-container .close-btn {
+    background-color: #dc3545;
+    margin-left: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+  }
+  

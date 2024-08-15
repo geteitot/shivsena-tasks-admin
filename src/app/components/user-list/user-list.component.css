@@ -1,0 +1,207 @@
+/* 
+.userNTasks {
+    display: flex;
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.user-list {
+  
+  border: solid black;
+  gap: 1px;
+    width: 20%;
+    background-color: #e0e0e0;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+}
+
+.user-item {
+    cursor: pointer;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+}
+
+.list-group-item{
+  align-items: center;
+  text-align: center;
+}
+
+.user-item:hover {
+    background-color: #c8e6c9;
+}
+
+.user-list h2 {
+    background-color: #009688;
+    color: white;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+}
+
+.user-detail {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.task-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card {
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.completed {
+    background-color: #4caf50;
+}
+
+.pending {
+    background-color: #ff9800;
+}
+
+.total {
+    background-color: #2196f3;
+}
+
+.task-list {
+    margin-top: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-item label {
+    margin: 0;
+}
+
+.list-group-item:hover{
+  background-color: #ff9800;
+}
+.list-group-item{
+  padding: 10px;
+  border: none;
+  color: inherit;
+  border-bottom: black solid;
+} */
+
+.userNTasks {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.user-list {
+  width: 20%;
+  background-color: #e0e0e0;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+  border: solid black;
+}
+
+.list-group-item {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+  background-color: #ff9800;
+}
+
+.user-detail {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.task-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.completed {
+  background-color: #4caf50;
+}
+
+.pending {
+  background-color: #ff9800;
+}
+
+.total {
+  background-color: #2196f3;
+}
+
+.task-list {
+  margin-top: 20px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  height: 5rem;
+}
+
+.completed-task {
+  background: linear-gradient(to right, #b4d28e, #ace3939e);
+}
+
+.pending-task {
+  background: linear-gradient(to right, #f69699cf, #d79e9e8a);
+}
+
+.task-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.task-item label {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.task-icon i {
+  color: white;
+}
+

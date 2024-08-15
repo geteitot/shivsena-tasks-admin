@@ -1,0 +1,21 @@
+<div id="dialog-overlay" *ngIf="isDialogOpen"></div>
+<div id="update-task-dialog" *ngIf="isDialogOpen">
+  <form (ngSubmit)="updateTask()">
+    <input type="hidden" [(ngModel)]="task.id" name="id" />
+
+    <label for="update-task-title">Title:</label>
+    <input id="update-task-title" [(ngModel)]="task.title" name="title" />
+
+    <label for="update-task-subtitle">Subtitle:</label>
+    <input id="update-task-subtitle" [(ngModel)]="task.subtitle" name="subtitle" />
+
+    <label for="update-task-description">Description:</label>
+    <textarea id="update-task-description" [(ngModel)]="task.description" name="description"></textarea>
+
+    <label for="update-task-validity">Date Validity:</label>
+    <input type="date" id="update-task-validity" [(ngModel)]="task.dateValidity" name="dateValidity" />
+
+    <button type="submit">Update Task</button>
+  </form>
+  <button id="close-dialog" (click)="closeDialog()">Close</button>
+</div>

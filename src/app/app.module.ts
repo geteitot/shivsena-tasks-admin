@@ -1,18 +1,45 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';  // Import these
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { TaskFormComponent } from './components/task-form/task-form.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { UpdateTaskDialogComponent } from './components/update-task-dialog/update-task-dialog.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FilterTasksPipe } from './tasks/filter-tasks.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './services/auth.guard';
+
+const routes: Routes = [
+  { path: 'tasks', component: TaskListComponent },
+  { path: 'add-task', component: TaskFormComponent },
+  { path: 'users', component: UserListComponent },
+  { path: '', redirectTo: '/tasks', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserListComponent,
+    TaskFormComponent,
+    TaskListComponent,
+    UpdateTaskDialogComponent,
+    FilterTasksPipe,
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot(routes)  ,// Add this,
+    CommonModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,24 @@
+<div class="cont">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input id="search-bar" type="text" class="form-control" placeholder="Search Tasks" [(ngModel)]="searchText">
+          <button class="btn btn-outline-secondary" type="button" (click)="viewTasks()">View All Tasks</button>
+        </div>
+      </div>
+    </div>
+  
+    <div id="tasks-list" class="list-group">
+      <div *ngFor="let task of tasks | filterTasks: searchText" class="list-group-item list-group-item-action" (click)="openDialog(task)">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{task.title}}</h5>
+              <p class="card-text">{{task.subtitle}}</p>
+              <a href="#" class="btn btn-primary">स्थिती तपासा</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  
+  </div>
+  

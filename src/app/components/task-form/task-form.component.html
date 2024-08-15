@@ -1,0 +1,16 @@
+<form (ngSubmit)="createTask()">
+    <label for="task-title">Title:</label>
+    <input id="task-title" [(ngModel)]="task.title" name="title" required />
+  
+    <label for="task-subtitle">Subtitle:</label>
+    <input id="task-subtitle" [(ngModel)]="task.subtitle" name="subtitle" />
+  
+    <label for="task-description">Description:</label>
+    <textarea id="task-description" [(ngModel)]="task.description" name="description"></textarea>
+  
+    <label for="task-validity">Date Validity:</label>
+    <input type="date" id="task-validity" [(ngModel)]="task.dateValidity" name="dateValidity" />
+  
+    <button type="submit">Create Task</button>
+  </form>
+  

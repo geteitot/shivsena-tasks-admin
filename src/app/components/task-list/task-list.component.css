@@ -1,0 +1,46 @@
+/* Styling the search bar */
+#search-bar {
+    width: 100%;
+    padding: 10px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Styling the task cards */
+  .task-card {
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .task-card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Styling the task title */
+  .task-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Styling the task description */
+  .task-card p {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  /* Task validity date styling */
+  .task-card .task-validity {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+  }
+  
