@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'tasks', component: TaskListComponent },
   { path: 'add-task', component: TaskFormComponent },
   { path: 'users', component: UserListComponent },
-  { path: '', redirectTo: '/tasks', pathMatch: 'full' }
+  { path: '', redirectTo: '/users', pathMatch: 'full' }
 ];
 
 @NgModule({

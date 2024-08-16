@@ -1,46 +1,21 @@
-<!-- 
 <div class="userNTasks">
   <div class="user-list">
+    <div class="subscreen-header">
+      <h2>पदाधिकारी</h2>
+    </div>
     <ul class="list-group list-group-flush">
-       <li class="list-group-item"  *ngFor="let user of users" (click)="selectUser(user)">{{user}}</li>
+      <li class="list-group-item" *ngFor="let user of users" (click)="selectUser(user)">
+        <div class="user-item-title">{{user.first_name+' '+user.last_name}}</div>
+        <div class="user-item-subtitle">{{user.mobile_no}}</div>
+      </li>  
     </ul>
   </div>
 
-
-<div class="user-detail" *ngIf="selectedUser">
-  <div class="task-summary">
-    <div class="card completed">
-      <h5>Completed</h5>
-      <p>{{ completedTasks.length }}</p>
+  <!-- User tasks Sidebar -->
+  <div class="user-tasks" *ngIf="selectedUser">
+    <div class="subscreen-header">
+      <h2>{{selectedUser.first_name+' '+selectedUser.last_name}} Tasks Status</h2>
     </div>
-    <div class="card pending">
-      <h5>Pending</h5>
-      <p>{{ pendingTasks.length }}</p>
-    </div>
-    <div class="card total">
-      <h5>Total</h5>
-      <p>{{ tasks.length }}</p>
-    </div>
-  </div>
-  <div class="task-list">
-    <div *ngFor="let task of tasks" class="task-item">
-      <input type="checkbox" [checked]="task.isCompleted" disabled=true />
-      <label>{{ task.description }}</label>
-    </div>
-  </div>
-</div>
-
-</div> -->
-
-<div class="userNTasks">
-  <div class="user-list">
-    <ul class="list-group list-group-flush">
-       <li class="list-group-item" *ngFor="let user of users" (click)="selectUser(user)">{{user}}</li>
-    </ul>
-  </div>
-
-  <!-- User Detail Sidebar -->
-  <div class="user-detail" *ngIf="selectedUser">
     <div class="task-summary">
       <div class="card completed">
         <h5>Completed</h5>
@@ -55,16 +30,63 @@
         <p>{{ tasks.length }}</p>
       </div>
     </div>
-    
     <div class="task-list">
-      <div *ngFor="let task of tasks" [ngClass]="task.isCompleted ? 'task-item completed-task' : 'task-item pending-task'">
+      <div *ngFor="let task of tasks" [ngClass]="task.isCompleted ? 'task-item completed-task' : 'task-item pending-task'" (click)="selectTask(task)">
         <span class="task-icon">
           <i *ngIf="task.isCompleted" class="fas fa-check-circle"></i>
           <i *ngIf="!task.isCompleted" class="fas fa-times-circle"></i>
         </span>
-        
         <label>{{ task.title }}</label>
       </div>
+    </div>
+  </div>
+
+  <!-- User task submissions Sidebar -->
+  <div class="user-task-submissions" *ngIf="selectedTask">
+    <div class="subscreen-header">
+      <h2>{{selectedTask.title}} Submissions</h2>
+      <span class="close-icon">
+        <i class="fas fa-close" (click)="closeSubmissions()"></i>
+      </span>
+    </div>
+    <div class="submission-list">
+    <div class="wrapper" *ngIf="submissions.length>0">
+      <div *ngFor="let submission of submissions; let i = index" class="submission-tile"(click)="toggleExpand(i)">
+        <span class="task-icon" >
+          <i class="fas fa-sticky-note"></i>
+        </span>
+
+        <div class="submission-tile-header">
+          <label>{{ submission.title }}</label>
+          <h5>{{ submission.submissionDate }}</h5>
+        </div>
+        
+        <div *ngIf="expandedIndex === i">
+      
+          <!-- <h5>{{ submission.description }}</h5> -->
+          <div class="document-grid">
+            <div *ngFor="let doc of submission.documents" class="document-item">
+              <a [href]="doc.file_url" target="_blank">
+                <div class="icon-container">
+                  <i [ngClass]="getFileIcon(doc['file_type'])"></i>
+                </div>
+                <div class="filename">{{ doc.file_name }}</div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      
+    </div>
+    <div class="wrapper" *ngIf="submissions.length==0">
+      <div class="align-self-center">
+        No Submissions Done Yet!!
+      </div> 
+    </div>
+
+     
     </div>
   </div>
 </div>

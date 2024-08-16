@@ -45,4 +45,13 @@ export class TaskService {
     return this.http.get(`${this.API_URL}?action=getUsers&secret=${this.SECRET}`);
   }
 
+  getUsersData():Observable<any>{
+    return this.http.get(`https://shivsena.prasaar.co:9090/accounts/userListAgainstMobileNumber/?org_code=ETIOT`);
+  }
+
+
+  //getsubmissions
+  getTaskSubmissions(userId:string,taskId:string):Observable<any>{
+    return this.http.get(`${this.API_URL}?action=getSubmissions&secret=${this.SECRET}&taskId=${taskId}&userId=${userId}`);
+  }
 }
