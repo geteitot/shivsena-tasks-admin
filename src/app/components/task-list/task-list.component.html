@@ -5,26 +5,26 @@
         <div class="input-group">
           <input id="search-bar" type="text" class="form-control" placeholder="Search Tasks" [(ngModel)]="searchText">
           <button class="btn btn-outline-secondary" type="button" (click)="viewTasks()">View All Tasks</button>
-  
-
+          <button class="btn btn-outline-secondary" id="add-task-btn" (click)="openCreateTaskDialog()" >Add Task</button>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="input-group">
-          <button class="btn btn-outline-secondary" (click)="openCreateTaskDialog()">Add Task</button>
-  
 
-        </div>
-      </div>
     </div>
   
     <div id="tasks-list" class="list-group">
-      <div *ngFor="let task of tasks | filterTasks: searchText" class="list-group-item list-group-item-action" (click)="openUpdateTaskDialog(task)">
+      <div *ngFor="let task of tasks | filterTasks: searchText" class="list-group-item list-group-item-action" >
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">{{task.title}}</h5>
+              <h2 class="card-title">{{task.title}}</h2>
               <p class="card-text">{{task.subtitle}}</p>
-              <a href="#" class="btn btn-primary">स्थिती तपासा</a>
+              <div class="task-action-buttons">
+                <button class="btn btn-warning" (click)="openUpdateTaskDialog(task)">
+                <i class="fas fa-edit"></i> 
+                </button>
+                <button class="btn btn-danger" (click)="confirmDeleteDialog(task.taskId)">
+                <i class="fas fa-trash"></i> 
+                </button>
+              </div>
             </div>
           </div>
       </div>

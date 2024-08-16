@@ -11,20 +11,9 @@ export class TaskService {
 
   constructor(private http: HttpClient) {}
 
+  // task related
   getTasks(): Observable<any> {
     return this.http.get(`${this.API_URL}?action=getTasks&secret=${this.SECRET}`);
-  }
-
-  createTask(task: any): Observable<any> {
-    return this.http.post(this.API_URL, {
-      action: 'createTask',
-      secret: this.SECRET,
-      ...task
-    });
-  }
-
-  getUsers():Observable<any>{
-    return this.http.get(`${this.API_URL}?action=getUsers&secret=${this.SECRET}`);
   }
 
   getTaskStatus(userId:string):Observable<any>{
@@ -38,4 +27,22 @@ export class TaskService {
       updateData
     });
   }
+  createTask(task: any): Observable<any> {
+    return this.http.post(this.API_URL, {
+      action: 'createTask',
+      secret: this.SECRET,
+      ...task
+    });
+  }
+
+  deleteTask(taskId:string):Observable<any>{
+    return this.http.delete(`${this.API_URL}?action=deleteTask&secret=${this.SECRET}&taskId=${taskId}`);
+  }
+
+  //users related
+
+  getUsers():Observable<any>{
+    return this.http.get(`${this.API_URL}?action=getUsers&secret=${this.SECRET}`);
+  }
+
 }

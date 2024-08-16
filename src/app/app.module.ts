@@ -16,6 +16,7 @@ import { AuthGuard } from './services/auth.guard';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmatioonDialogComponent } from './confirmatioon-dialog/confirmatioon-dialog.component';
 
 const routes: Routes = [
   { path: 'tasks', component: TaskListComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     UpdateTaskDialogComponent,
     FilterTasksPipe,
     LoginComponent,
+    ConfirmatioonDialogComponent,
 
     
   ],

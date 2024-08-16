@@ -27,9 +27,9 @@
 //     });
 //   }
 // }
-
-import { Component, Input } from '@angular/core';
-import { TaskService } from '../../services/task.service';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-update-task-dialog',
@@ -37,23 +37,21 @@ import { TaskService } from '../../services/task.service';
   styleUrls: ['./update-task-dialog.component.css']
 })
 export class UpdateTaskDialogComponent {
-  @Input() task: any = {};
+  task: any = {};
 
-
-  constructor(private taskService: TaskService) {}
-
-  openDialog(task: any) {
-    this.task = task;
+  constructor(private taskService: TaskService,
+    public dialogRef: MatDialogRef<UpdateTaskDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+    this.task = { ...data.task }; // Clone the task data to avoid direct mutation
   }
 
   closeDialog() {
+    this.dialogRef.close(); // Close the dialog without passing any data
   }
 
   updateTask() {
-    this.taskService.updateTask(this.task.id, this.task).subscribe(() => {
-      alert('Task Updated');
-      this.closeDialog();
-    });
+    
+    this.dialogRef.close(this.task); // Pass the updated task data back to the calling component
   }
 }
-

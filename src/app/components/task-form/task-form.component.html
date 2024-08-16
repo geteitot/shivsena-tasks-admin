@@ -1,16 +1,57 @@
-<form (ngSubmit)="createTask()">
-    <label for="task-title">Title:</label>
-    <input id="task-title" [(ngModel)]="task.title" name="title" required />
-  
-    <label for="task-subtitle">Subtitle:</label>
-    <input id="task-subtitle" [(ngModel)]="task.subtitle" name="subtitle" />
-  
-    <label for="task-description">Description:</label>
-    <textarea id="task-description" [(ngModel)]="task.description" name="description"></textarea>
-  
-    <label for="task-validity">Date Validity:</label>
-    <input type="date" id="task-validity" [(ngModel)]="task.dateValidity" name="dateValidity" />
-  
-    <button type="submit">Create Task</button>
-  </form>
-  
+<!-- <form (ngSubmit)="createTask()">
+  <label for="task-title">Title:</label>
+  <input id="task-title" [(ngModel)]="task.title" name="title" required /> 
+
+  <label for="task-subtitle">Subtitle:</label>
+  <input id="task-subtitle" [(ngModel)]="task.subtitle" name="subtitle" />
+
+  <label for="task-description">Description:</label>
+  <textarea id="task-description" [(ngModel)]="task.description" name="description"></textarea>
+
+  <label for="task-validity">Date Validity:</label>
+  <input type="date" id="task-validity" [(ngModel)]="task.dateValidity" name="dateValidity" />
+
+  <button type="submit">Create Task</button>
+</form>
+   -->
+
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create Task</h5>
+        <button type="button" class="close-dialog" (click)="closeDialog()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="createTask()">
+          <input type="hidden" [(ngModel)]="task.id" name="id" />
+
+          <div class="form-group">
+            <label for="update-task-title">Title:</label>
+            <input class="form-control" id="update-task-title" [(ngModel)]="task.title" name="title" required />
+          </div>
+
+          <div class="form-group">
+            <label for="update-task-subtitle">Subtitle:</label>
+            <input class="form-control" id="update-task-subtitle" [(ngModel)]="task.subtitle" name="subtitle" />
+          </div>
+
+          <div class="form-group">
+            <label for="update-task-description">Description:</label>
+            <textarea class="form-control" id="update-task-description" [(ngModel)]="task.description" name="description"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="update-task-validity">Date Validity:</label>
+            <input type="date" class="form-control" id="update-task-validity" [(ngModel)]="task.dateValidity" name="dateValidity" />
+          </div>
+
+         <div class="modal-footer"> <button type="submit" class="btn btn-primary">Update Task</button>
+          <button type="button" class="btn btn-secondary" (click)="closeDialog()">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
