@@ -37,10 +37,18 @@ export class AppComponent implements OnInit{
   //   }
   // }
 
+  setCookieWithExpiry(cookieName: string, cookieValue: string, expirationMinutes: number) {
+    const date = new Date();
+    date.setTime(date.getTime() + (expirationMinutes * 60 * 1000)); // Add expiration time
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${cookieName}=${cookieValue}; ${expires}; path=/; secure; samesite=strict`;
+  }
+
   async verification() {
     const authToken = this.getCookie('auth-token');
     // If no auth token, redirect to another website
     if (!authToken) {
+      this.setCookieWithExpiry('name', 'LoginPlease', 30); 
       window.location.href = 'https://shivsena.prasaar.co/prasaar/#/login';
       return; // Ensure no further code runs if no token is present
     }
@@ -52,11 +60,14 @@ export class AppComponent implements OnInit{
         this.showContent = true;
       } else {
         // Redirect to another website if token is not valid
+        this.setCookieWithExpiry('name', 'LoginPlease', 30); 
+
         window.location.href = 'https://shivsena.prasaar.co/prasaar/#/login';
       }
     } catch (error) {
       // Handle any unexpected errors during token verification
       console.error('Token verification failed:', error);
+      this.setCookieWithExpiry('name', 'LoginPlease', 30); 
       window.location.href = 'https://shivsena.prasaar.co/prasaar/#/login';
     }
   }

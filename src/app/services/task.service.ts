@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TaskService {
-  private secretKey = 'EITOTShivsena'
+  private secretKey = '9n8L[FrE~6PJKCeqJyi4ku7oiv0yJ1qU7mJVDEUWnylBxt'
   private API_URL = 'https://us-central1-prasaar-824d7.cloudfunctions.net/prasaarTasksWithMasters';
   private SECRET = 'EITOT';
 
@@ -58,7 +58,6 @@ export class TaskService {
   }
 
   validateAuthToken(token: string): Observable<HttpResponse<any>> {
-    
     const decreptedToken = this.decryptToken(token,this.secretKey);
     const headers = new HttpHeaders({
       'Authorization': `${decreptedToken}`
@@ -67,6 +66,7 @@ export class TaskService {
   }
 
 // import * as CryptoJS from 'crypto-js';
+// private secretKey = 'EITOTShivsena'
 //   encryptToken(token: string, secretKey: string): string {
 //     const encrypted = CryptoJS.AES.encrypt(token, secretKey).toString();
 //     return encrypted;
