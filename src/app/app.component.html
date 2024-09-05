@@ -1,6 +1,6 @@
-<div class="temp">
+<div class="temp" *ngIf="showContent">
   <div class="header">
-    <header>टास्क मॅनेजमेंट सिस्टम</header>
+    <header>शिवसेना - उध्दव बाळासाहेब ठाकरे </header>
   </div>
   <div class="cont">
     <div class="sidebar">
@@ -12,4 +12,7 @@
     </div>
   </div>
   <footer>&copy; 2024 Prasaar</footer>
+</div>
+<div class="splash" *ngIf="!showContent">
+  <splash-screen></splash-screen>
 </div>

@@ -114,7 +114,6 @@ export class UserListComponent implements OnInit {
     
     
     this.tasks = Object.values(tasksData);
-    console.log(tasksData)
     this.completedTasks = this.tasks.filter(task => task.isCompleted);
     this.pendingTasks = this.tasks.filter(task => !task.isCompleted);
     this.tasks=[...this.completedTasks,...this.pendingTasks];
