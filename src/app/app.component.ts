@@ -9,12 +9,12 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
   title = 'shivsena-tasks';
-  showContent = false;
+  showContent = true;
   constructor(private taskService:TaskService){};
 
 
   ngOnInit(): void {
-    this.verification();
+    // this.verification(); 
     // this.checkAuthToken();
   }
 
